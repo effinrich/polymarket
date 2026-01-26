@@ -5,7 +5,7 @@ Approve USDC for trading on Polymarket using py-clob-client.
 import os
 from dotenv import load_dotenv
 from py_clob_client.client import ClobClient
-from py_clob_client.clob_types import ApiCreds
+from py_clob_client.clob_types import ApiCreds, AssetType, BalanceAllowanceParams
 
 # Load environment variables from .env file
 load_dotenv()
@@ -50,7 +50,8 @@ def main():
 
         # Approve USDC for the exchange to spend
         print("Setting USDC allowance for Polymarket exchange...")
-        result = client.set_allowance()
+        params = BalanceAllowanceParams(asset_type=AssetType.COLLATERAL)
+        result = client.update_balance_allowance(params)
 
         print("Success")
         if result:
