@@ -7,8 +7,6 @@ import asyncio
 import json
 import os
 from datetime import datetime, timezone
-from decimal import Decimal
-from zoneinfo import ZoneInfo
 
 import websockets
 from dotenv import load_dotenv
@@ -130,7 +128,7 @@ class MarketSniper:
         print(f"  Token ID: {token_id}")
         print(f"  Price: ${price:.4f}")
         print(f"  Amount: ${BUY_AMOUNT}")
-        print(f"  Order Type: FOK (Fill or Kill)")
+        print("  Order Type: FOK (Fill or Kill)")
         print(f"{'='*60}\n")
 
         if DRY_RUN:

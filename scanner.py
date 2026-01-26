@@ -2,8 +2,10 @@
 Query Polymarket Gamma API to find active 15-minute Bitcoin/Ethereum markets.
 """
 
+
 import asyncio
 from datetime import datetime, timedelta
+import os
 from zoneinfo import ZoneInfo
 import aiohttp
 
@@ -13,7 +15,7 @@ GAMMA_API_URL = "https://gamma-api.polymarket.com"
 
 def get_current_15min_window_et():
     """Get the current 15-minute window boundaries in ET."""
-    et = ZoneInfo("America/New_York")
+    et = ZoneInfo(os.getenv("TIME_ZONE"))
     now = datetime.now(et)
     
     # Calculate start of current 15-minute window
