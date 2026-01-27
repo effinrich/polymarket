@@ -8,7 +8,7 @@ from py_clob_client.client import ClobClient
 from py_clob_client.clob_types import ApiCreds, AssetType, BalanceAllowanceParams
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(dotenv_path="./.env")
 
 # Configuration
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
