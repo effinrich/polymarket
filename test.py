@@ -1,5 +1,8 @@
 from py_clob_client.client import ClobClient
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 host = "https://clob.polymarket.com"
 chain_id = 137 # Polygon mainnet
