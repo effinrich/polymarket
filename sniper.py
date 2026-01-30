@@ -292,12 +292,12 @@ async def main():
 
 if __name__ == "__main__":
     print("""
-╔═══════════════════════════════════════════════════════════════╗
-║           POLYMARKET 15-MINUTE MARKET SNIPER                  ║
-╠═══════════════════════════════════════════════════════════════╣
-║  1. Run scanner.py to find active market                      ║
-║  2. Copy CONDITION_ID, YES_TOKEN_ID, NO_TOKEN_ID, END_TIME    ║
-║  3. Set DRY_RUN = False when ready for real trades            ║
-╚═══════════════════════════════════════════════════════════════╝
++---------------------------------------------------------------+
+|           POLYMARKET 15-MINUTE MARKET SNIPER                  |
++---------------------------------------------------------------+
+|  1. Run scanner.py to find active market                      |
+|  2. Copy CONDITION_ID, YES_TOKEN_ID, NO_TOKEN_ID, END_TIME    |
+|  3. Set DRY_RUN = False when ready for real trades            |
++---------------------------------------------------------------+
 """)
     asyncio.run(main())

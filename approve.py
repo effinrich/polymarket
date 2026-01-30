@@ -10,11 +10,30 @@ from py_clob_client.clob_types import ApiCreds, AssetType, BalanceAllowanceParam
 # Load environment variables from .env file
 load_dotenv()
 
-# Configuration
+
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
-CLOB_API_KEY = os.getenv("CLOB_API_KEY")
-CLOB_SECRET = os.getenv("CLOB_SECRET")
-CLOB_PASSPHRASE = os.getenv("CLOB_PASSPHRASE")
+
+# 1. Instantiate the client (create an object)
+client = ClobClient(
+    host="https://clob.polymarket.com",
+    key=PRIVATE_KEY,
+    chain_id=137  # e.g., Polygon Mainnet
+)
+
+
+# Get existing API key, or create one if none exists
+user_api_creds = client.create_or_derive_api_creds()
+
+# print(user_api_creds)
+print("API Key:", user_api_creds.api_key)
+print("Secret:", user_api_creds.api_secret)
+print("Passphrase:", user_api_creds.api_passphrase)
+
+# Configuration
+# PRIVATE_KEY = os.getenv("PRIVATE_KEY")
+CLOB_API_KEY = user_api_creds.api_key
+CLOB_SECRET = user_api_creds.api_secret
+CLOB_PASSPHRASE = user_api_creds.api_passphrase
 
 # Polymarket CLOB API endpoint for Polygon Mainnet
 HOST = "https://clob.polymarket.com"
